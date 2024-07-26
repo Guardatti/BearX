@@ -10,15 +10,15 @@ const Cards = () => {
 
   const {orders, loading, error} = useSelector(state => state.orders)
 
+  const navigate = useNavigate()
+
   if (loading && !orders) {
     return <Loader />
-  }
+  };
 
   if (error) {
     return <h2 style={{textAlign: 'center'}}>{error}</h2>
-  }
-
-  const navigate = useNavigate()
+  };
 
   return (
     <>

@@ -12,7 +12,7 @@ export const getOrders = async (dispatch, currentUser) => {
 
         if (orders) {
             dispatch(fetchOrdersSuccess(orders.data.data));
-        }
+        };
 
     } catch (error) {
         console.log(error);
@@ -27,7 +27,7 @@ export const createOrder = async(order, dispatch, currentUser) => {
 
         if (response) {
             getOrders(dispatch, currentUser)
-        }
+        };
 
     } catch (error) {
         console.log(error);
