@@ -10,7 +10,7 @@ import useRedirect from '../../../Hooks/useRedirect'
 
 const Register = () => {
 
-  const [isLoading, setLoading] = useState()
+  const [isLoading, setLoading] = useState(false)
 
   const redirect = useNavigate()
 
