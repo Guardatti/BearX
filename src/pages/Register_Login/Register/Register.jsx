@@ -5,7 +5,7 @@ import { Formik } from 'formik'
 import { InitialValueRegister } from '../../../components/formik/initialValues'
 import { validationSchemaRegister } from '../../../components/formik/validationSchema'
 import { createUser } from '../../../axios/axiosUser'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useRedirect from '../../../Hooks/useRedirect'
 
 const Register = () => {
@@ -17,6 +17,8 @@ const Register = () => {
   const [isLoading, setLoading] = useState()
 
   const redirect = useNavigate()
+
+  const location = useLocation()
 
   useRedirect('/profile')
 

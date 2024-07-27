@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Container, ContainerMenu, ContainerOptions, ContainerProfile, IconCart, IconLogout, IconOrders, IconSettings } from './ProfileStyled'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { setCurrentUser } from '../../redux/user/userSlice'
 import { clearOrders } from '../../redux/orders/ordersSlice'
 
@@ -12,6 +12,8 @@ const Profile = () => {
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
+
+    const location = useLocation()
 
     useEffect(() => {
         window.scrollTo(0, 0)

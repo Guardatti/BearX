@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrders } from '../../axios/axiosOrders'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { Container, ContainerProducts, ContainerText, ContainerTotal, ShippingCost, Subtotal, Total } from './SummaryStyled'
 import SummaryCard from '../../components/SummaryCard/SummaryCard'
 import { formatPrice } from '../../utils/formatPrice'
@@ -17,6 +17,8 @@ const Summary = () => {
   const [visitedOrder, setVisitedOrder] = useState(null)
   
   const orders = useSelector(state => state.orders.orders)
+
+  const location = useLocation()
 
   useEffect(() => {
     window.scrollTo(0, 0)

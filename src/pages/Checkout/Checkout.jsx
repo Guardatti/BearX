@@ -7,7 +7,7 @@ import { formatPrice }from '../../utils/formatPrice'
 import FormInput from '../../components/UI/FormInputCheckout/FormInput'
 import { InitialValueCheckout } from '../../components/formik/initialValues'
 import { validationSchemaCheckout } from '../../components/formik/validationSchema'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { clearCart } from '../../redux/cart/cartSlice'
 import { createOrder } from '../../axios/axiosOrders'
 
@@ -15,6 +15,8 @@ import { createOrder } from '../../axios/axiosOrders'
 const MyOrders = () => {
 
   const {cartItems, shippingCost} = useSelector(state => state.cart)
+
+  const location = useLocation()
 
   const price = cartItems.reduce((acc, item) => {
     return (acc + item.price * item.quantity)

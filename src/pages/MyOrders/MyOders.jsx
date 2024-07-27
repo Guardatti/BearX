@@ -3,7 +3,7 @@ import { Button, Container, ContainerCards, ContainerText } from './MyOrdersStyl
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrders } from '../../axios/axiosOrders'
 import { clearError, fetchOrdersFail } from '../../redux/orders/ordersSlice'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Cards from '../../components/MyOrders/Cards'
 
 const MyOders = () => {
@@ -15,6 +15,8 @@ const MyOders = () => {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
+
+  const location = useLocation()
 
   useEffect(() => {
     window.scrollTo(0, 0)

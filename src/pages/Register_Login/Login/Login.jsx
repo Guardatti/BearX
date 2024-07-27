@@ -7,7 +7,7 @@ import { validationSchemaLogin } from '../../../components/formik/validationSche
 import { loginUser } from '../../../axios/axiosUser'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from '../../../redux/user/userSlice'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useRedirect from '../../../Hooks/useRedirect'
 import { fetchOrdersSuccess } from '../../../redux/orders/ordersSlice'
 
@@ -18,6 +18,8 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const redirect = useNavigate()
+
+  const location = useLocation()
 
   useRedirect('/profile')
 
