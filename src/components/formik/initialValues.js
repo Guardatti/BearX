@@ -10,7 +10,7 @@ export const InitialValueCheckout = {
     name: '',
     cellphone: '',
     location: '',
-    address: ''
+    address: '',
 }
 
 export const InitialValueRegister = {
