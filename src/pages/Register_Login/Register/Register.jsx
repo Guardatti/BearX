@@ -10,10 +10,6 @@ import useRedirect from '../../../Hooks/useRedirect'
 
 const Register = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location])
-
   const [isLoading, setLoading] = useState()
 
   const redirect = useNavigate()
@@ -21,6 +17,10 @@ const Register = () => {
   const location = useLocation()
 
   useRedirect('/profile')
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
 
   return (
     <ContainerRegister>
