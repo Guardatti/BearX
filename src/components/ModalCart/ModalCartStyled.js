@@ -10,7 +10,7 @@ export const ContainerMenuCart = styled.div`
     right: 0px;
     border: 1px solid #FFFFFF;
     transition: all 0.5s ease;
-    transform: ${({$stateCart}) => $stateCart ? 'translateX(150%)' : 'translate(0%)'};
+    transform: ${({$stateCart}) => $stateCart ? 'translateX(0%)' : 'translateX(150%)'};
     z-index: 2;
     display: flex;
     align-items: center;

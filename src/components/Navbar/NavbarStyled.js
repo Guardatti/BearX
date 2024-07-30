@@ -56,7 +56,7 @@ export const ContainerLinks = styled.div`
         background-color: #101010;
         transition: all 0.5s ease;
         border-top: 1px solid white;
-        transform: ${({$isMenuOpen}) => $isMenuOpen ? 'translateX(-150%)' : 'translateX(0%)'};
+        transform: ${({$isMenuOpen}) => $isMenuOpen ? 'translateX(0%)' : 'translateX(-150%)'};
         z-index: 2;
     }
     @media (min-width: 576px) and (max-width: 991px){
@@ -71,7 +71,7 @@ export const ContainerLinks = styled.div`
         transition: all 0.5s ease;
         border-top: 1px solid #FFFFFF;
         border-right: 1px solid #FFFFFF;
-        transform: ${({$isMenuOpen}) => $isMenuOpen ? 'translateX(-150%)' : 'translateX(0%)'};
+        transform: ${({$isMenuOpen}) => $isMenuOpen ? 'translateX(0%)' : 'translateX(-150%)'};
         z-index: 2;
     }
 `

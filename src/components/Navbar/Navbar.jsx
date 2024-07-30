@@ -11,30 +11,30 @@ const Navbar = () => {
     const toggleMenu = () => {
 
       setIsMenuOpen(!isMenuOpen);
-      setIsCartOpen(true);
-      setIsUserOpen(true);
+      setIsCartOpen(false);
+      setIsUserOpen(false);
     }
 
     const [isCartOpen, setIsCartOpen] = useState(false)
     const toggleCart = () => {
 
       setIsCartOpen(!isCartOpen);
-      setIsUserOpen(true);
-      setIsMenuOpen(true);
+      setIsUserOpen(false);
+      setIsMenuOpen(false);
     }
 
     const [isUserOpen, setIsUserOpen] = useState(false)
     const toggleUser = () => {
 
       setIsUserOpen(!isUserOpen);
-      setIsMenuOpen(true);
-      setIsCartOpen(true);
+      setIsMenuOpen(false);
+      setIsCartOpen(false);
     }
 
     const closeMenus = () => {
-      setIsMenuOpen(true);
-      setIsCartOpen(true);
-      setIsUserOpen(true);
+      setIsMenuOpen(false);
+      setIsCartOpen(false);
+      setIsUserOpen(false);
     }
 
     const {cartItems} = useSelector(state => state.cart)
@@ -75,7 +75,7 @@ const Navbar = () => {
       <ModalUser stateUser={isUserOpen} stateSetUser={setIsUserOpen}/>
       <ModalCart stateCart={isCartOpen} stateSetCart={setIsCartOpen}/>
       {
-        ((isCartOpen === false ) || (isMenuOpen === false)) && <Overlay onClick={closeMenus} />
+        ((isCartOpen === true ) || (isMenuOpen === true)) && <Overlay onClick={closeMenus} />
       }
     </ContainerNavbar>
   )

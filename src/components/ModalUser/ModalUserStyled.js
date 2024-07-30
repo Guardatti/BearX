@@ -16,7 +16,7 @@ export const ContainerAll = styled.div`
     flex-direction: column;
     z-index: 2;
     transition: all 0.5s ease;
-    transform: ${({$stateUser}) => $stateUser ? 'translateX(150%)' : 'translateX(0%)'};
+    transform: ${({$stateUser}) => $stateUser ? 'translateX(0%)' : 'translateX(150%)'};
 `
 
 export const Arrow = styled.div`
