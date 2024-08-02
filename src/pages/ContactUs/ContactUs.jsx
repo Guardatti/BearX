@@ -1,15 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import { ButtonStyled, ContainerButton, ContainerForm, ContainerFormStyled, ContainerFormText, ContainerMap } from './ContactUsStyled'
+import { ButtonStyled, ContainerButton, ContainerForm, ContainerFormStyled, ContainerFormText, ContainerMap, Loading } from './ContactUsStyled'
 import { Formik } from 'formik'
 import { initialValueContactUs } from '../../components/formik/initialValues'
 import { validationSchemaContactUs } from '../../components/formik/validationSchema'
 import FormInput from '../../components/UI/FormInput/FormInput'
 import Textarea from '../../components/UI/Textarea/Textarea'
+import emailjs from '@emailjs/browser';
+
 
 const ContactUs = () => {
 
   const location = useLocation();
+
+  const form = useRef();
+
+  const [isLoading, setLoading] = useState(false)
+
+  const sendEmail = () => {
+
+    emailjs
+      .sendForm('service_p6keizc', 'template_39gingf', form.current, {
+        publicKey: '4J18PYcgaGGgyLwvL',
+      })
+      .then(
+        () => {
+          alert('Message sent succesfully')
+          setLoading(false)
+        },
+        () => {
+          alert('The message could not be sent')
+          setLoading(false)
+        },  
+      );
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -27,13 +51,14 @@ const ContactUs = () => {
         initialValues={initialValueContactUs}
         validationSchema={validationSchemaContactUs}
         onSubmit={(values, {resetForm}) => {
-          console.log(values);
+          setLoading(true)
+          sendEmail(values)
           resetForm();
         }}
       >
-        <ContainerFormStyled>
+        <ContainerFormStyled ref={form}>
           <FormInput
-            name="name"
+            name="user_name"
             label="Name"
             type="text"
           />
@@ -48,7 +73,7 @@ const ContactUs = () => {
             type="number"
           />
           <FormInput
-            name="email"
+            name="user_email"
             label="Email"
             type="email"
           />
@@ -57,7 +82,12 @@ const ContactUs = () => {
             label="Message"
           />
           <ContainerButton>
-            <ButtonStyled type='submit'>Send</ButtonStyled>
+            {
+              isLoading ?
+              <Loading><span>.</span><span>.</span><span>.</span></Loading>
+              :
+              <ButtonStyled type='submit'>Send</ButtonStyled>
+            }
           </ContainerButton>
         </ContainerFormStyled>
       </Formik>

@@ -1,8 +1,8 @@
 export const initialValueContactUs = {
-    name: '',
+    user_name: '',
     surname: '',
     age: '',
-    email: '',
+    user_email: '',
     message: '',
 }
 

@@ -121,3 +121,36 @@ export const ButtonStyled = styled.button`
     height: 50px;
     border-radius: 5px;
 `
+
+export const Loading = styled.div`
+    background-color: #FFFFFF;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    span{
+        color: black;
+        animation: loading  2s infinite;
+        font-size: 25px;
+    }
+    span:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    span:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    span:nth-child(3) {
+        animation-delay: 1s;
+    }
+    @keyframes loading {
+        0%, 20%, 80%, 100% {
+            opacity: 0;
+        }
+        40%, 60% {
+            opacity: 1;
+        }
+    }
+`
