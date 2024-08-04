@@ -26,6 +26,9 @@ export const Arrow = styled.div`
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #FFFFFF;
+    @media (min-width: 320px) and (max-width: 991px){
+        transform: translateX(41px);
+    }
 `
 
 export const Container = styled.div`
